@@ -1,0 +1,47 @@
+# 분석
+
+object & class 관계, 메시지 등 파악
+
+주어진 문제엔 4가지 객체 등장
+
+
+library, book borrower, librarian
+
+
+1~4 전부 동명의 클래스
+
+관계
+library holds books
+다중도
+1 vs 1.n
+role name 
+보유 vs 
+
+관계
+library have registered borrowers
+다중도
+1 vs 1.n
+role name 
+보유 vs 등록
+
+
+관계
+library employs librarians
+다중도
+1 vs 1.n
+role name 
+employ vs employee 
+  
+
+
+작업:
+
+sequence diagram
+
+각 uc들 하나의 시퀀스 다이어그램에
+
+컬렉션? 객체묶음
+
+
+도서관 클래스는 모든것을 포함
+; 3개의 컬렉션 저장
