@@ -1,0 +1,23 @@
+UC3, UC4는 borrower가 관여하지 않는다. (요구사항 기술서 참고.)
+
+UCD5 주어진 정보(이용자 이름, 책 정보)를 통해서 1회씩 검증한 후 대출 가능한지 조회.
+
+sequence Dgm의 메소드 파라미터는 데이터타입을 명시한다.
+ex) (name : String)
+sequence Dgm에서 번번히 일어나는 check의 결과에 대해서 return되는 메서드를 표기한다.
+(데이터 타입은 True, False가 되면 적당하다.)
+sequence Dgm UC5번에서 대출객체와 책, 이용자를 link해주는 메서드가 필요하다.
+
+class Dgm에서 각 class는 객체를 생성하는 constructor를 반드시 기술해야 한다.
+attribute도 반드시 기술해야 한다.
+
+각 class의 속성은 문제에 주어진대로 하면 된다.
+Liabrary (이름)
+Borrower (이름)
+Book(catalog num, author, title
+loan(대출에 대한 정보(반납일, 대출일 등))
+
+새로운 서비스(객체)를 추가할 계획이라면 그에 맞는 클래스를 작성한다.
+loan log를 만들 예정이니 클래스 추가 필요.
+각 컬렉션에 메소드를 조사해서 squence Dgm에서 사용되는 메서드에 반영한다.
+
