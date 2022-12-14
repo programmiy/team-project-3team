@@ -1,0 +1,15 @@
+#BlueJ class context
+comment0.target=Library
+comment1.params=name
+comment1.target=void\ registerOneBorrower(java.lang.String)
+comment2.params=title\ author
+comment2.target=void\ registerOneBook(java.lang.String,\ java.lang.String)
+comment3.params=
+comment3.target=void\ displayBooksLoanable()
+comment4.params=
+comment4.target=void\ displayBooksLoaned()
+comment5.params=name\ title\ author
+comment5.target=void\ loanBook(java.lang.String,\ java.lang.String,\ java.lang.String)
+comment6.params=name\ title\ author
+comment6.target=void\ returnBook(java.lang.String,\ java.lang.String,\ java.lang.String)
+numComments=7
