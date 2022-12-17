@@ -5,7 +5,12 @@ public class Library
     private String name;
     private TreeSet<Book> bookList = new TreeSet<Book>();
     private LinkedList<Loan> loanList = new LinkedList<Loan>();
+    private LinkedList<Loan> loanHistory = new LinkedList<Loan>();
     private HashSet<Borrower> borrowerList = new HashSet<Borrower>();
+    public Library(String name)
+    {
+        this.name = name;
+    }
     public void registerOneBorrower(String name)
     {
         int count = 0;
@@ -32,7 +37,7 @@ public class Library
         int catalogNumber = bookList.size();
         Book newBook = new Book(title,author,catalogNumber);
         bookList.add(newBook);
-        //askRegisterAnotherBook()
+        //책을 더 등록할지 물어보는 기능
     }
     public void displayBooksLoanable()
     {
@@ -54,9 +59,7 @@ public class Library
     }
     public void loanBook(String name,String title,String author)
     {
-        // 이 부분 getBorrower메서드가 loan에 있으니까 loan클래스를 호출해야될 것같습니다.
         Borrower borrower = getBorrower(name);
-        // 이 부분도 위랑 마찬가지.
         Book book = getBook(title, author);
         if (borrower.canLoan()==true & book.isItLoan() != true){
             Loan newLoan = new Loan(borrower,book);
@@ -65,17 +68,50 @@ public class Library
             loanList.add(newLoan);
         }
         else{
-            //borrow failed
+            //대출이 불가능한경우
         }
     }
     public void returnBook(String name,String title,String author)
     {
-        Loan loanObj = new Loan();
-        loanObj = getLoan(name,title,author);
-        Book bookObj = loanObj.getBook(title, author);
-        Borrower borrowerObj = getBorrower();
+        Loan loanObj = getLoan(name,title,author);
+        Book bookObj = loanObj.getBook();
+        Borrower borrowerObj = loanObj.getBorrower();
         bookObj.unlinkLoan();
         borrowerObj.unlinkLoan(loanObj);
+        loanHistory.add(loanObj);
         loanList.remove(loanObj);
+    }
+    public Book getBook(String title,String author)
+    {
+        for(Book book : bookList){
+            if (title == book.title & author == book.author & book.isItLoan() == false)
+            {
+                return book;
+            }
+        }
+        return null;
+    }
+    public Borrower getBorrower(String name)
+    {
+        for(Borrower borrower : borrowerList){
+            if (name == borrower.name & borrower.canLoan() == true)
+            {
+                return borrower;
+            }
+        }
+        return null;
+    }
+    public Loan getLoan(String name,String title,String author)
+    {
+        for(Loan loan : loanList){
+            if (name == loan.borrower.name)
+            {
+                if (title == loan.book.title & author == loan.book.author)
+                {
+                    return loan;
+                }
+                            }
+        }
+        return null;
     }
 }

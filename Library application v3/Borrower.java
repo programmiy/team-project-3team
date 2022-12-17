@@ -2,8 +2,8 @@
 public class Borrower
 {
     // 인스턴스 변수 - 다음의 예제를 사용자에 맞게 바꾸십시오
-    private String name;
-    private Loan[] linkedLoan;
+    public String name;
+    public Loan[] linkedLoan;
     
     public Borrower(String borrowerName)
     {
@@ -31,7 +31,7 @@ public class Borrower
     }
     public boolean canLoan()
     {
-        if (linkedLoan.length>10){return true;}
+        if (linkedLoan.length<10){return true;}
         else{return false;}
     }
 }
